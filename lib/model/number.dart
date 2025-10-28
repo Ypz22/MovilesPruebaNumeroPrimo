@@ -5,12 +5,11 @@ class NumberModel {
   NumberModel({required this.num1, required this.num2});
 
   int mcd(int a, int b) {
-    while (b != 0) {
-      int temp = b;
-      b = a % b;
-      a = temp;
+    int min = a < b ? a : b;
+    for (int i = min; i >= 1; i--) {
+      if (a % i == 0 && b % i == 0) return i;
     }
-    return a;
+    return 1;
   }
 
   int prime() {
